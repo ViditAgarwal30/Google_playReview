@@ -105,9 +105,7 @@ print(f'accuracy: {acc}, precision: {prec}')
 
 
 twt = ['loving it']
-#vectorizing the tweet by the pre-fitted tokenizer instance
 twt = tokenizer.texts_to_sequences(twt)
-#padding the tweet to have exactly the same shape as `embedding_2` input
 twt = keras.preprocessing.sequence.pad_sequences(twt, maxlen=28, dtype='int32', value=0)
 print(twt)
 sentiment = model.predict(twt,batch_size=1,verbose = 2)[0]
